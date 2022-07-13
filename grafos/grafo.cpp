@@ -18,7 +18,7 @@ vamos a crear un grao que tiene los siguientes nod s
 
 using namespace std;
 
-#define MAX 10001;
+#define MAX 10001
 
 vector <int> ady[MAX];
 
@@ -30,7 +30,7 @@ visito
 
 bool visitado[MAX];
 
-bool Visitado_componente[MAX];
+bool visitado_componente[MAX];
 
 //debemos realizar un algoritmo para el recorrido 
 
@@ -38,10 +38,10 @@ void dfs(int u){
        //saber si ya visite el camino (arista)  
 visitado[u]= true ;
       //saber si ya visite el nodo 
-visistado_componente[u]= true;
+visitado_componente[u]= true;
       //ciclo de recorrido 
 for(int v=0; v<ady[u].size(); v++){
-	if(!visitado[ady[[u][u]]){
+	if(!visitado[ady[u][v]]){
 		dfs(ady[u][v]);
 	}
 }
@@ -60,11 +60,12 @@ int main(){
 	  
 	  while(E--) {
 	  
-	  scanf("%d, %d", &u, &v);
+	  //scanf("%d, %d", &u, &v);
+	  cin>>u,v;
 	  ady[u].push_back(v)
 	  ady[u].push_back(u)
 }
-pintf("Canttodad de componentes conexos\n");
+printf("Canttodad de componentes conexos\n");
 int total=0
 /* 
 con esto puedo saber cuanto pesa cada uno 
@@ -80,7 +81,23 @@ o tamaño
  		memset(visitado_componente, 0, sizeof(visitado_componente));
  		dfs(i);
 	 }
+	 /*
+	 
+	 
+	 */
+	 printf("Componente: %d", total+1);
+	 //
+	 for(int j = 1; j<=V; ++j){
+	 	if(!visitado_componente[j]){
+	 		printf("%d", j);
+		 }
+	 }
+	 printf ("\n");
+	 total++;
+	 
  }
 }
+printf ("%d\n", total);
+return 0;
 
 
